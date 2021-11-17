@@ -1,0 +1,39 @@
+## 문제 설명
+
+-0을 입력할 때 까지 평균을 구하기<br>
+
+
+## 자료 구조
+-score
+타입 : list<br>
+저장 데이터 : 평균을 저장시킬 배열
+
+-datas
+타입 : int<br>
+저장 데이터 : 0이 나올때까지 score에 점수들을 저장시킬 임시배열
+
+
+## 풀이 과정
+예시 :
+```txt
+1. 조건문을 이용하여 0이 입력 받을때까지 값을 score에 저장
+2. 0을 입력받으면 sum함수와 len을 이용하여 평균추출
+
+```
+
+## 코드 구현
+```python
+score = []
+
+while(True):
+    datas = int(input())
+
+    if datas == 0:
+        print(sum(score)/len(score))
+        
+    else:
+        score.append(datas)
+```
+
+
+점수 : 100/100 <br>

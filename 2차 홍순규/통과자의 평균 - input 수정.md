@@ -1,4 +1,4 @@
-## 통과자의 평균2
+## 통과자의 평균 - input 수정
 
 ### 문제 설명
 
@@ -19,7 +19,7 @@
 
 - **avg**
     - 타입 : int
-    - 저장 데이터 : 병정들의 평균
+    - 저장 데이터 : 전체 병정들의 평균
 
 - **cnt**
     - 타입 : int
@@ -28,36 +28,28 @@
 ### 풀이 과정
 
 ```txt
-1. 점수 score 를 입력받는다.
+1. 점수 score 를 입력받아서 int 형태의 리스트로 저장
 
-2. 첫 번째 반복문을 돌면서 병정 전체의 평균점수를 구해서 avg 에 저장한다.
+2. 리스트의 총합(sum)과 길이(len) 를 통해서 전체 병정의 평균을 구함
 
-3. tmp 를 0 으로 초기화하고 두 번째 반복문을 돌면서 전체 평균점수를 넘는 병정들의 총합과 수를 각각 tmp 와 cnt 에 저장한다.
+3. 반복문을 돌면서 총합의 평균보다 같거나 높은 점수만 tmp 에 더하고 cnt 도 1 증가함
 
-4. tmp/cnt 값을 출력한다. 
+4. tmp/cnt 값을 정수형태로 변환해서 출력한다. 
 ```
 
 ### 코드 구현
 - 사용 언어 : 파이썬
 
 ```python
-n = int(input())
-score = input().split(' ')
+score = list(map(int,input().split()))
 tmp = 0
-avg = 0
-
-for i in score:
-    tmp += int(i)
-    avg = tmp/n
-    
-tmp = 0
+avg = sum(score)/len(score)
 cnt = 0
 
 for i in score:
-    if int(i) >= avg:
-        tmp += int(i)      
+    if i >= avg:
+        tmp += i
         cnt += 1
-        
         
 print(int(tmp/cnt))
 ```
